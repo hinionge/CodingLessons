@@ -1,14 +1,34 @@
-def fizz_buzz (number):
-    outstring = ""
-    for y in range(number):
-        outstring = ""
-        if (y % 3 == 0):
-            outstring = outstring+"Fizz"
+# This is a sample Python script.
 
-        if (y % 5 == 0):
-            outstring = outstring+"Buzz"
+# Press Shift+F10 to execute it or replace it with your code.
+# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 
-        print(y, ": ", outstring)
+def MultofM(n,m):
+    mult = True
+    if n % m > 0:
+        mult = False
+    return mult
+
+def CheckNumbersUpTo(r):
+    total = 0
+    for c in range (r):
+        current = False
+        if MultofM(c,3):
+            current = True
+        if MultofM(c,5):
+            current = True
+        if current:
+            total = total + c
+
+    return total
 
 if __name__ == '__main__':
-	fizz_buzz(15)
+    n = 1000
+    print ("Sum of multiples up to", n, ":", (CheckNumbersUpTo(n)))
+
+
+# Press the green button in the gutter to run the script.
+
+
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
