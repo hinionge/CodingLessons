@@ -20,7 +20,7 @@ list = []
     # l for length of list; note to self: don't forget it's zero-indexed
 def fill_random_list(l):
     for c in range(l):
-        rand = random.randrange(1,999)
+        rand = random.randrange(1,163)
         list.append(node(c-1,rand,c+1))
 
     list[0].p = None
@@ -139,6 +139,21 @@ def print_list():
 
     print(list_one_line)
 
+    # Output the list as blocks; I just wanted to do it visually
+def print_bargraph():
+
+        bars = ""
+
+        node = find_index_of_start()
+        for iter in range(len(list)):
+            value = int(list[node].v)
+            for block in range(value):
+                bars = bars + "█"
+            bars = bars + "\n"
+            node = list[node].c
+
+        print(bars)
+
 def print_data():
     slab = ""
     for index in range(len(list)):
@@ -170,9 +185,6 @@ def sort_list():
         swap_with_child(swap)
         sort_list()
 
-#    print_data()
-
-
 
 
 
@@ -182,9 +194,10 @@ def sort_list():
 if __name__ == '__main__':
 
     # Create a random list
-    fill_random_list(17)
+    fill_random_list(23)
 
     print_data()
+    print_bargraph()
     print_list()
 
     print("List in order:")
@@ -194,6 +207,7 @@ if __name__ == '__main__':
     sort_list()
 
     print_data()
+    print_bargraph()
     print_list()
 
     print("List in order:")
