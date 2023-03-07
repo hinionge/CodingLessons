@@ -175,8 +175,6 @@ def sort_list():
     swap = None
 
     for count in range(len(list)-1):
-        #print(list[node].v)
-         #print(smaller_than_child((node)))
         if smaller_than_child(node) == True:
             swap = count
         node = list[node].c
