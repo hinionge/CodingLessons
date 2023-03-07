@@ -45,5 +45,3 @@ if __name__ == '__main__':
     n = int(n)
 
     print (SmallestDivisorUpTo(n), "is the smallest number which divides all integers up to and including", n)
-
- 

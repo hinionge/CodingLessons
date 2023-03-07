@@ -71,9 +71,3 @@ if __name__ == '__main__':
     timer = time.time()-timestart
 
     print (timer, "seconds")
-
-    import winsound
-
-    duration = 1000  # milliseconds
-    freq = 440  # Hz
-    winsound.Beep(freq, duration)
