@@ -1,89 +1,80 @@
 
-# 26.2.2023
-#
-# The Mandelbrot Set
-#
-# I can't believe I actually made it work....... honestly, I've been wanting to code this since I was about twelve
-
-import math
 import cmath
+import math
 
-def add_point(s,filled):
-    if filled == 0:
-        s = s + " "
-    if filled == 1:
-        s = s + "•"
-    return s
+def analyze_point(x,y,maxiter):
 
-def checkpoint(c):
+    colour = 0
+
+    # The Mandelbrot Set
+
     z = complex(0,0)
-    filled = 0
-    itercount = 0
+    c = complex(x,y)
 
-    for iter in range (200):
-        if z.real**2 + z.imag**2 > 2:
-            z = complex(2,0)
+    iter = 0
+    steps = 0
 
+    while iter < maxiter:
+        if z.real**2+z.imag**2 < 2:
+                z = z**2 + c
+                steps += 1
+        iter += 1
 
-        # Mandelbrot set
-        z = z**2 + c
-
-        # Burning Ship fractal
-        # z = (abs(z.real) + abs(z.imag)*complex(0,1))**2 + c
-
+    colour = maxiter-steps
 
 
 
+    # Circle (test)
 
-    if z.real**2 + z.imag**2 > 2:
-        filled = 1
+    # if x**2 + y**2 > 1:
+    #     colour = 1
+    # else:
+    #     colour = 0
 
-    return filled
+    return colour
 
-def plot_mandelbrot(xmin,xmax,ymin,ymax):
-    output = ""
-    for y in range(ymin,ymax,-2):
-        y = y / (ymax-ymin)*2
-        for x in range(xmin,xmax):
-            x=x/50
-            output = add_point(output,checkpoint(complex(x,y)))
-        output = output + "\n"
-    print(output)
+def add_point(slab,colour,spect):
 
+    cols = [" ","*","o","0","•"]
+
+    div = spect/len(cols)
+    colour = math.floor(colour/div)
+
+    slab = slab + cols[colour]
+
+    return slab
+
+def plot_all(xn,xx,xs,yn,yx,ys,maxiter):
+
+    plane = ""
+
+    xn = xn * xs
+    xx = xx * xs
+
+    yn = yn * ys
+    yx = yx * ys
+
+    for y in range(yx,(yn-1),-1):
+        y = y/ys
+        for x in range(xn,(xx+1)):
+            x = x/xs
+            plane = add_point(plane,analyze_point(x,y,maxiter),maxiter)
+        plane = plane + "\n"
+
+    print(plane)
+
+# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    xmin = -100
-    xmax = 50
-    ymin = 40
-    ymax = -40
+    xn = -2
+    xx = 1
+    xs = 180
 
-    userinput = ""
-    increment = 20
+    yn = -2
+    yx = 2
+    ys = 60
 
-    while userinput != "quit":
-        print("\n,")
-        plot_mandelbrot(xmin, xmax, ymin, ymax)
-        userinput = input()
-        if userinput == ",":
-            xmin = xmin - increment
-            xmax = xmax - increment
-        if userinput == ".":
-            xmin = xmin + increment
-            xmax = xmax + increment
-        if userinput == "a":
-            ymin = ymin + increment
-            ymax = ymax + increment
-        if userinput == "z":
-            ymin = ymin - increment
-            ymax = ymax - increment
+    maxiter = 120
 
-        if userinput == "[":
-            ymin = ymin - increment
-            ymax = ymax + increment
-            xmin = xmin - increment
-            xmax = xmax + increment
+    plot_all(xn,xx,xs,yn,yx,ys,maxiter)
 
-        if userinput == "]":
-            ymin = ymin + increment
-            ymax = ymax - increment
-            xmin = xmin + increment
-            xmax = xmax - increment
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
