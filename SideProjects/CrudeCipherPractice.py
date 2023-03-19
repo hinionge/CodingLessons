@@ -29,7 +29,7 @@ def shift_letter(letter,s):
 
     # ... but check that
     if k < 97:
-        lowercase = False
+:        lowercase = False
 
     # Assign the letter a number from 1 to 26 (well, from 0 to 25)
     if lowercase:
