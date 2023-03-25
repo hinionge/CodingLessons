@@ -45,8 +45,8 @@ MorseTree.append(node("S",29,30))
 
 MorseTree.append(node(None,None,None))  # Not every node in the tree contains a character
 MorseTree.append(node(None,None,None))
-MorseTree.append(node("Q",None,None))   # And in this fourth layer, almost all letters go nowhere nest
-MorseTree.append(node("Z",None,None))   # In the fifth layer are punctuation and characters but I have
+MorseTree.append(node("Q",None,None))   # And in this fourth layer, almost all letters go nowhere next
+MorseTree.append(node("Z",None,None))   # In the fifth (sixth?) layer are punctuation numbers etc but I have
 MorseTree.append(node("Y",None,None))   # limited this one to just letters
 MorseTree.append(node("C",None,None))
 MorseTree.append(node("X",None,None))

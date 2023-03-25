@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
     k = 1
 
-    while max(sums_of_two_abundants) < 2000:
+    while max(sums_of_two_abundants) < 10000:
 
 
         #print(k)
