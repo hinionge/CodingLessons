@@ -8,6 +8,7 @@ import random
 class heap:
 
     def __init__(self):
+            output = output =
         self = []
 
     def append_value(self,value):
