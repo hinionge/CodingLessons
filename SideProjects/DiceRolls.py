@@ -33,17 +33,17 @@ def in_desc_order(rolls):
 if __name__ == "__main__":
                             # n = how many rolls
                             # d = D sides of die
-    n = 2
-    d = 3
+    n = 3
+    d = 6
                             # How many times to repeat a set of rolls
-    r = 9999
+    r = 99999
 
                             # This section repeats the set of rolls r times
                             # One variable to keep a running average; another to keep a running count
     average = 0
     tally = 0
 
-    for c in range(1,r):
+    for c in range(1,r+1):
         rolls = rolldice(n,d)
 
         if in_desc_order(rolls):
@@ -55,4 +55,3 @@ if __name__ == "__main__":
         average = tally/c
 
         print(str(rolls) + "     " + slab +  str(tally) + "/" + str(c) + "    " + str(average))
-    print(average)
