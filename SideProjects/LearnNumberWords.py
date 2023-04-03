@@ -102,7 +102,7 @@ if __name__ == "__main__":
     number = 0
 
                             # Threshold for correct guesses in a row
-    repeat_test = 73
+    repeat_test = 5
 
     repeats = 1
     attempts = 0
