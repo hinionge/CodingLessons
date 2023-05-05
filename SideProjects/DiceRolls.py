@@ -36,7 +36,7 @@ if __name__ == "__main__":
     n = 3
     d = 6
                             # How many times to repeat a set of rolls
-    r = 99999
+    r = 999999
 
                             # This section repeats the set of rolls r times
                             # One variable to keep a running average; another to keep a running count
