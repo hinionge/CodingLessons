@@ -2,30 +2,46 @@
 # Visualize whether primes result in further primes when various powers of two are added to them
 # Options in main for how many primes to check, and how many powers of 2 to check
 
+
+
 import math
 
-def is_n_prime(n):
-    top = n
-    bottom = 1
-    f = 1
-    integercount = 0
-    while f >= 1:
-#        print(integercount)
-        if f%1 == 0:
-            integercount = integercount + bottom
-        f = top/bottom
-        top = top-bottom
-        bottom = bottom + 1
+from math import isqrt
 
-    if integercount == 6:
-    #    print (n, "is prime")
-        return True
-# ... with an if statement:
-    if  n == 2:
-        return True
-    else:
-    #    print (n, "is not prime")
+def is_n_prime(n: int) -> bool:
+    if n <= 3:
+        return n > 1
+    if n % 2 == 0 or n % 3 == 0:
         return False
+    limit = isqrt(n)
+    for i in range(5, limit+1, 6):
+        if n % i == 0 or n % (i+2) == 0:
+            return False
+    return True
+
+
+# def is_n_prime(n):
+#     top = n
+#     bottom = 1
+#     f = 1
+#     integercount = 0
+#     while f >= 1:
+# #        print(integercount)
+#         if f%1 == 0:
+#             integercount = integercount + bottom
+#         f = top/bottom
+#         top = top-bottom
+#         bottom = bottom + 1
+#
+#     if integercount == 6:
+#     #    print (n, "is prime")
+#         return True
+# # ... with an if statement:
+#     if  n == 2:
+#         return True
+#     else:
+#     #    print (n, "is not prime")
+#         return False
 
 
 def listpowers(p,t):
@@ -43,7 +59,7 @@ def listpowers(p,t):
 #                    print(str(n) + " is prime...")
 #                    print(str(n) + " plus " + str(pow(2,power)) + " is prime, too: " + str(n+pow(2,power)))
 #                    output = output + str(power) + ", "
-                    output = str(output) + str(power).rjust(3," ")
+                    output = str(output) + "  o" # str(power).rjust(3," ")
                 else:
                     output = output + "   "
             output = output + "   " + str(n).rjust(3," ")
@@ -52,8 +68,8 @@ def listpowers(p,t):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    primes = 37
-    powers = 37
+    primes = 163
+    powers = 41
 
     listpowers(primes,powers)
 

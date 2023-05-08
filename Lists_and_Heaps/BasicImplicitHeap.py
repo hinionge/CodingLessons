@@ -2,6 +2,10 @@
 # Basic implicit heap, plus a bodge of a visualization of heap in tree shape. I'm determined to get this!
 # edit: and it DOES work -- at last
 # Next is to 1) make a heapsort from this; and 2) do all this with nodes and classes, I guess
+#
+# 8.5.2023
+# Added heapsort method, it works!
+
 
 import random
 
@@ -55,9 +59,34 @@ def display_heap(heap):
     return output
 
 
+def heapsort(a):
+                            # Assume it is already a heap
+                            # Variable for size of heap, which will decrease
+    size = len(a)-1
+
+    sorted_list = []
+
+                            # Repeat process for every index in heap
+    for j in range(size,0,-1):
+                            # Add the node at the top of the (max) heap to the new list
+        sorted_list.append(a[1])
+                            # Swap that node with the last leaf
+        a[1], a[j] = a[j], a[1]
+                            # Remove the last leaf (now the largest value)
+        del a[-1]
+                            # The peak of the "heap" is now a small value.
+                            # Recursively heapify that until it goes where it belongs
+                            # ... leaving, at the top, the new max value
+        max_heapify(a, j, 1)
+                            # Repeat this for every node in the heap
+
+                            # Then return the final array, in sorted order
+    return sorted_list
+
+
 if __name__ == "__main__":
     a = [None]
-    for j in range(31):
+    for j in range(63):
         a.append(random.randint(1,200))
 
     print(a)
@@ -69,3 +98,5 @@ if __name__ == "__main__":
     print(a)
     print(display_heap(a))
 
+    print("Sorted using heapsort: ")
+    print(heapsort(a))
