@@ -29,12 +29,13 @@ def merge(left,right):
         left.remove(small_left)
         right.remove(small_right)
 
+        print(small_left)
+        print(small_right)
+
         if small_left < small_right:
             merged.append(small_left)
-            merged.append(small_right)
         else:
             merged.append(small_right)
-            merged.append(small_left)
 
 
 
