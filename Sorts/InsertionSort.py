@@ -46,7 +46,7 @@ def InsertionSort(a):
                 pos = j
 
         sorted = free_up_index(sorted,pos)
-        print(sorted)
+        print(sorted) # hdfkg
         sorted[pos] = a[i]
         print(sorted)
 
