@@ -1,50 +1,62 @@
+# 17.5.2023
 # Merge sort
+# (from scratch)
 
-# Committing to Git at this point because it's late already and I'm too tired for this (!)
-# It seemed to work, before, but only on lists of identical length
+def MergeSort(a):
+    if len(a) < 2:
+        return a
 
-# But I'll upload with this exact input because the output shows:
-# [1, 3, 2, 4, 5, 7, 6, 8]
+    length = len(a)
 
-# So it isn't working right at the start...
+    half = length//2
 
+    left = a[:half]
+    right = a[half:]
 
-def merge(left,right):
-    merged = []
+    left = MergeSort(left)
+    right = MergeSort(right)
 
-    size = len(left) + len(right)
+                            # From here on I got stuck and consulted this https://www.scaler.com/topics/merge-sort-in-python/
+                            # Code outputs
+                            #    [6, 3, 9, 2, 0, 4, 1] (unsorted)
+                            #    [0, 3, 6, 9, 2, 1, 4] ("Sorted") so something's wrong
 
-    while len(merged) < size:
-        small_left = left[0]
-        small_right = right[0]
+    # Initial values for pointers that we use to keep track of where we are in each array
+    i = j = k = 0
 
-        for j in range(len(left)):
-            if left[j] < small_left:
-                small_left = left[j]
-
-        for j in range(len(right)):
-            if right[j] < small_right:
-                small_right = right[j]
-
-        left.remove(small_left)
-        right.remove(small_right)
-
-        print(small_left)
-        print(small_right)
-
-        if small_left < small_right:
-            merged.append(small_left)
+    # Until we reach the end of either start or end, pick larger among
+    # elements start and end and place them in the correct position in the sorted array
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            a[k] = left[i]
+            i += 1
         else:
-            merged.append(small_right)
+            a[k] = right[j]
+            j += 1
+        k += 1
+
+        # When all elements are traversed in either left or right,
+        # pick up the remaining elements and put in sorted array
+        while i < len(left):
+            a[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            a[k] = right[j]
+            j += 1
+            k += 1
 
 
+    return a
 
-    return merged
 
 
 if __name__ == "__main__":
 
-    a = [4,7,3,8]
-    b = [1,2,6,5]
 
-    print(merge(a,b))
+    unsorted = [6,3,9,2,0,4,1]
+
+    print(unsorted)
+    sorted = MergeSort(unsorted)
+    print(sorted)

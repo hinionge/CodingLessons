@@ -62,9 +62,7 @@ def find_longest(m):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-   #j = int(input("Below: "))
-   #largest = find_longest(j)
-   #print("\nLongest sequence below " + str(j) + " starts with " + str(largest) + ":")
-   #print(collatz_seq_print(largest))
-
-    print(collatz_seq_print(7))
+   j = int(input("Below: "))
+   largest = find_longest(j)
+   print("\nLongest sequence below " + str(j) + " starts with " + str(largest) + ":")
+   print(collatz_seq_print(largest))
