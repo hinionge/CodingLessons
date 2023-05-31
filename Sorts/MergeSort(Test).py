@@ -1,38 +1,42 @@
 # 17.5.2023
 # Merge sort
-# (from scratch) (again)
-
-# Ok it works: but I am going to debug it (!) until I understand *how* it works, because I don't have a good intuitive sense yet
+# (from scratch)
 
 def MergeSort(a):
-    if len(a) > 1:
-        halfway = len(a) // 2
-        left = a[:halfway]
-        right = a[halfway:]
+    if len(a) < 2:
+        return a
 
-                            # Recursive call on each half
-        MergeSort(left)
-        MergeSort(right)
+    length = len(a)
 
-                            # Variables to scroll through
-        i = 0
-        j = 0
+    half = length//2
 
-                            # Iterator for the list which was passed, and which will be returned (sorted)
-        k = 0
+    left = a[:half]
+    right = a[half:]
 
-        while i < len(left) and j < len(right):
-            if left[i] <= right[j]:
+    left = MergeSort(left)
+    right = MergeSort(right)
 
-                a[k] = left[i]
+                            # From here on I got stuck and consulted this https://www.scaler.com/topics/merge-sort-in-python/
+                            # Code outputs
+                            #    [6, 3, 9, 2, 0, 4, 1] (unsorted)
+                            #    [0, 3, 6, 9, 2, 1, 4] ("Sorted") so something's wrong
 
-                i += 1
-            else:
-                a[k] = right[j]
-                j += 1
+    # Initial values for pointers that we use to keep track of where we are in each array
+    i = j = k = 0
 
-            k += 1
+    # Until we reach the end of either start or end, pick larger among
+    # elements start and end and place them in the correct position in the sorted array
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            a[k] = left[i]
+            i += 1
+        else:
+            a[k] = right[j]
+            j += 1
+        k += 1
 
+        # When all elements are traversed in either left or right,
+        # pick up the remaining elements and put in sorted array
         while i < len(left):
             a[k] = left[i]
             i += 1
@@ -43,7 +47,9 @@ def MergeSort(a):
             j += 1
             k += 1
 
+
     return a
+
 
 
 if __name__ == "__main__":

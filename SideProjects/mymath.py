@@ -3,7 +3,7 @@ import math
 
 class mymath:
 
-    def second_divides_first(x,y):
+    def x_divides_y(x,y):
         factor = True
         if x % y != 0:
             factor = False

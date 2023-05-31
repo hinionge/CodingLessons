@@ -5,53 +5,64 @@
 # Insertion Sort but rewritten -- previous was really just bubble sort in reverse (swapping still happened indivudually)
 # Re-coding now to preserve this distinction:
 # -- bubble sort the new item moves one swap by swap til it arrives in place
-# -- insertion sort, the correct place is found first and the new item placed there subsequently
-
-# 20.5.2023
-# Just a little note to self that this, somehow, took about five hundred attempts.
-# I repeatedly failed to notice that once a position to insert the new value had been found,
-#   it kept being added to, every time a larger value was found, up to the item to be inserted
-
-# Very relieved to have finally cracked this one. It was so simple, and I hated it (lol)
-
-
+# -- insertion sort, the correct place is found FIRST and the new item placed there subsequently
 
 import math
 import random
 import time
 
 
+                            # Method to create empty point in array a at index i
+                            # (assume zero index)
+def free_up_index(a,i):
+    if i >= len(a):
+        a.append([])
+        return a
 
-def InsertionSort(arr):
+    if a[i] == []:
+        return a
 
-    for i in range (1,len(arr)):
+    a.append([])
+                            # Honestly: the extra -2 and -1 surprised me, but it works!
+    for j in range(len(a)-2,i-1,-1):
+        a[j], a[j+1] = a[j+1], a[j]
 
-        j = 0
-
-        while arr[j] < arr[i]:
-            j += 1
-        pos = j
-
-        arr.insert(pos, arr[i])
-
-        del arr[i+1]
+    return a
 
 
-    return arr
 
+                            # Still doesn't work, I have rewritten this about 20 times and it still doesn't even slightly work
+def InsertionSort(a):
+    length = len(a)
+
+    sorted = []
+    sorted.append(a[0])
+    del a[0]
+
+    for i in range(len(a)):
+        pos = 0
+        for j in reversed(range(len(sorted))):
+            if sorted[j] < a[i]:
+                pos = j
+
+        sorted = free_up_index(sorted,pos)
+        print(sorted) # hdfkg
+        sorted[pos] = a[i]
+        print(sorted)
+
+    return sorted
 
 
 
 if __name__ == "__main__":
-    arr = []
-    for j in range(23):
-        arr.append(random.randint(1, 200))
+    a = []
+    for j in range(11):
+        a.append(random.randint(1, 200))
 
-    print(arr)
-
+    print(a)
 
     start = time.time()
-    arr = InsertionSort(arr)
+    a = InsertionSort(a)
     elapsed = time.time()-start
     print("Sorted by insertion sort in " + str(elapsed) + " seconds:")
-    print(arr)
+    print(a)

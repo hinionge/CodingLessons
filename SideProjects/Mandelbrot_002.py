@@ -67,13 +67,13 @@ def plot_all(xn,xx,xs,yn,yx,ys,maxiter):
 if __name__ == '__main__':
     xn = -2
     xx = 1
-    xs = 180
+    xs = 90
 
     yn = -2
     yx = 2
-    ys = 60
+    ys = 30
 
-    maxiter = 120
+    maxiter = 180
 
     plot_all(xn,xx,xs,yn,yx,ys,maxiter)
 
