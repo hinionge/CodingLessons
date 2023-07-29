@@ -36,8 +36,23 @@ def AllCharsUnique(StringToCheck):
 
 
 
+####### QUESTION (part 2) What if you cannot use additional data structures?
+
+def AllCharsUnique_InPlace(StringToCheck):
+    AllUnique = True
+
+                            # I feel like this method is somehow cheating, given it uses a built-in Python thing?
+                            # Literally just goes through character by character and then checks to see if that
+                            # character only occurs once.
+    for char in StringToCheck:
+        if StringToCheck.count(char) > 1:
+            AllUnique = False
+
+    return AllUnique
+
 
 
 if __name__ == "__main__":
     UserChoice = input("String to check: ")
     print(AllCharsUnique(UserChoice))
+    print(AllCharsUnique_InPlace(UserChoice))
