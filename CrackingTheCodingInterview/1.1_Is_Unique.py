@@ -36,7 +36,7 @@ def AllCharsUnique(StringToCheck):
 
 
 
-####### QUESTION (part 2) What if you cannot use additional data structures?
+# ###### QUESTION (part 2) What if you cannot use additional data structures?
 
 def AllCharsUnique_InPlace(StringToCheck):
     AllUnique = True
