@@ -31,8 +31,15 @@ def prime(n):
 def sum_primes_below(max):
     n = 2
     primesum = 0
+    count = 1
     while n < max:
         if prime(n):
+                            # Output every 1000th prime, just to keep me happy it's still alive :)
+            if count == 1000:
+                print(n)
+                count = 1
+
+            count += 1
             primesum += n
         n += 1
 
