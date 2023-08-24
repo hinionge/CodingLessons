@@ -89,4 +89,4 @@ def grid(n):
 
 
 if __name__ == "__main__":
-    print(grid(11961))
+    print(grid(119656343))
