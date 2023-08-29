@@ -1,4 +1,4 @@
-# Window opens fine
+# Window appears fine
 # Example button code didn't work, found nothing helpful on StackOverflow
 # so I'll leave Tkinter alone for a now
 
