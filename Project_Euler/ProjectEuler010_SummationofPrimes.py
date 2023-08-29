@@ -24,7 +24,7 @@ def prime(n):
     for s in range(max):
         sieve.append(1)
 
-    d = 2
+    d = 3
                                 # Count up to sqrt(n)
     while d <= max:
                                 # Only check a new divisor if it has not already been eliminated
@@ -34,7 +34,7 @@ def prime(n):
                                 # If a number d does not divide n, then eliminate all multiples of d from the search
         for j in range(d,len(sieve),d):
             sieve[j] = 0
-        d += 1
+        d += 2
 
     return True
 
