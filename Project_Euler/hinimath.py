@@ -10,7 +10,7 @@ def prime(n):
     if n == 2:
         return True
 
-    max = (int(math.ceil(math.sqrt(n))))
+    max = (int(math.ceil(math.sqrt(abs(n)))))
 
     sieve = [0]
 
