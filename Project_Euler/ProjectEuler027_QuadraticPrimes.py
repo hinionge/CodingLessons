@@ -72,7 +72,7 @@ if __name__ == "__main__":
                 a_ans = j
                 b_ans = k
                             # Uncomment this to see every single one checked
-    #        print("For a = " + str(j) + " and b = " + str(k) + " the chain is length: " + str(new))
+        #    print("For a = " + str(j) + " and b = " + str(k) + " the chain is length: " + str(new))
 
     print("Longest chain of primes generated was " + str(record) + ", from a = " + str(a_ans) + " and b = " + str(b_ans))
     print("Their product is " + str(a_ans * b_ans))
