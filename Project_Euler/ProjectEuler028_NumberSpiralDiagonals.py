@@ -26,10 +26,7 @@ def corners_total(edge):
         total,count = corners_total(edge-2)
 
                             # Counts the values, pretty much manually
-        count = count + skip
-        total = total + count
-
-        for j in range (3):
+        for j in range (4):
             count = count + skip
             total = total + count
 
