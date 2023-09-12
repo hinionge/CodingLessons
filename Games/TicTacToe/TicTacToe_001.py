@@ -78,6 +78,7 @@ def generate_codes():
     gold.append(sum)
 
     # print(gold)
+    #
 
 
                             # Draw it out in ASCII
