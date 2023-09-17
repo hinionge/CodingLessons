@@ -6,11 +6,20 @@
 import tkinter as tk
 
 window = tk.Tk()
-window.title("Hello World")
+window.title("This is the NEWS")
+window.geometry("500x200")
+
+l1 = tk.Label(window, text = "ah it's yourself", font=("Arial Bold", 50))
+l1.grid(column=0,row=0)
+
+def clicky():
+    l1.configure(text=txt.get())
 
 
-def handle_button_press(event):
-    window.destroy()
+button = tk.Button(window, text = "Clicky", command=clicky)
+button.grid(column=0,row=1)
 
-# Start the event loop.
+txt = tk.Entry(window, width=11)
+txt.grid(column=0,row=2)
+
 window.mainloop()
