@@ -14,7 +14,7 @@ import random
 
                             # Method to initialize an empty grid as an 'array' (list of lists)
                             # grid[0] is not a list, it's simply the size of the grid
-                            # From grid[1] to grid[9], each list has 0 as its first element
+                            # From grid[1] to grid[9], each list has 0 as its zeroth element
                             #   (potentially, later, a running row total?)
                             #   (zeroth row could also store column totals, possibly)
 
